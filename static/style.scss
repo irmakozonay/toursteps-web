@@ -1,0 +1,66 @@
+$color: #0091EA !default;
+$color2: #FFD34E !default;
+$color3: #EA5900 !default;
+$os: 'Open Sans', sans-serif !default;
+
+@import "mixins";
+
+* {
+  font-family: $os;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+}
+
+.awe-btn {
+  display: inline-block;
+  background: none;
+  border: 1px solid $color;
+  @include rounded(2px);
+  white-space: nowrap;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: normal;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  @include transition;
+  &.awe-btn-style2 {
+    border: 0;
+    background-color: #ddd;
+    color: #666;
+  }
+  &.awe-btn-style3 {
+    border: 0;
+    background-color: $color;
+    color: #fff;
+    &:focus,
+    &:hover {
+      background-color: #403F3F;
+      color: #fff;
+    }
+  }
+  &.awe-btn-style4 {
+    border: 1px solid $color3;
+    color: #666;
+    &:focus,
+    &:hover {
+      background-color: $color3;
+      color: #fff;
+    }
+  }
+  &:focus,
+  &:hover {
+    background-color: $color;
+    color: #fff;
+  }
+}
+
+body {
+  background-color: #f7f7f7;
+}
