@@ -20,16 +20,16 @@
       <div id="travelsteps">
         <div class="col-md-12">
           <ul class="nav nav-tabs">
-            <li class="col-md-3 nav-item">
+            <li class="col-md-3 nav-item" @click="trackClick('tab_change', 'Itinerary')">
               <router-link :to="{ name: 'Itinerary' }" tag="li" class="nav-link" active-class="active" exact>Itinerary</router-link>
             </li>
-            <li class="col-md-3 nav-item">
+            <li class="col-md-3 nav-item" @click="trackClick('tab_change', 'Accommodation')">
               <router-link :to="{ name: 'AccommodationTransportation' }" tag="li" class="nav-link" active-class="active">Accommodation</router-link>
             </li>
-            <li class="col-md-3 nav-item">
+            <li class="col-md-3 nav-item" @click="trackClick('tab_change', 'Budget')">
               <router-link :to="{ name: 'Budget' }" tag="li" class="nav-link" active-class="active">Budget</router-link>
             </li>
-            <li class="col-md-3 nav-item">
+            <li class="col-md-3 nav-item" @click="trackClick('tab_change', 'Good to know')">
               <router-link :to="{ name: 'AdditionalInfo' }" tag="li" class="nav-link" active-class="active">Good to Know</router-link>
             </li>
           </ul>
@@ -51,6 +51,7 @@
 import UserInfo from '../user/UserInfo.vue'
 import TripDetails from './TripDetails.vue'
 import { mapActions, mapGetters } from 'vuex'
+import { eventsMixin } from '../../../eventsMixin.js'
 
 export default {
   data () {
@@ -78,7 +79,8 @@ export default {
   created () {
     this.getConstantData()
     this.getTrip(this.tripId)
-  }
+  },
+  mixins: [eventsMixin]
 }
 </script>
 

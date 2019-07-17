@@ -2,8 +2,8 @@
   <div>
     <app-map v-show="dayMapsPlaces" :mapsPlaces="dayMapsPlaces"></app-map>
     <div role="tablist" class="itinerary-element">
-      <b-card v-for="(dayTitle, i) in trip.dayTitles" :key="i" no-body class="mb-1" @click="dayOpened(i + 1)">
-        <b-card-header header-tag="header" class="p-1" role="tab">
+      <b-card v-for="(dayTitle, i) in trip.dayTitles" :key="i" no-body class="mb-1">
+        <b-card-header header-tag="header" class="p-1" role="tab" @click="dayOpened(i + 1); trackClick('day_open', dayTitle)">
           <b-button block v-b-toggle="'accordion-' + i" variant="info">Day {{i + 1}}: {{dayTitle}}</b-button>
         </b-card-header>
         <b-collapse :id="'accordion-' + i" accordion="my-accordion" role="tabpanel">
@@ -29,6 +29,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { eventsMixin } from '../../../../eventsMixin.js'
 import Step from './Step'
 import Map from './Map'
 
@@ -78,7 +79,8 @@ export default {
     tripDay (i) {
       return this.trip.itinerary[(i + 1)]
     }
-  }
+  },
+  mixins: [eventsMixin]
 }
 </script>
 

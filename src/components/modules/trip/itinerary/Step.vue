@@ -39,7 +39,7 @@
             </div>
             <p v-if="step.duration != null" class="price">{{step.duration}} minutes</p>
             <div :class="{'height-placeholder': step.currency == null}">
-              <a :href="step.place.mapsPlace.url" target="_blank" class="awe-btn">INFO</a>
+              <a :href="step.place.mapsPlace.url" target="_blank" class="awe-btn" @click="trackClick('itinerary_item_details', step.place.mapsPlace.name)">INFO</a>
             </div>
           </div>
         </div>
@@ -51,6 +51,7 @@
 
 <script>
 import { constantDataMixin } from '../../../../constantDataMixin'
+import { eventsMixin } from '../../../../eventsMixin.js'
 
 export default {
   props: {
@@ -61,7 +62,7 @@ export default {
       return this.step.place.mapsPlace.types[0].replace(/_/g, ' ')
     }
   },
-  mixins: [constantDataMixin]
+  mixins: [constantDataMixin, eventsMixin]
 }
 </script>
 

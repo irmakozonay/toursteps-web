@@ -7,6 +7,7 @@
 
 <script>
 import Header from './components/Header.vue'
+
 export default {
   name: 'App',
   components: {
@@ -16,5 +17,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'static/style.scss';
+@import 'styles/style.scss';
 </style>

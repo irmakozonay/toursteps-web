@@ -9,8 +9,9 @@
       <div class="item-body">
         <div class="item-title">
           <h2>
-            <a :href="accommodation.stayPlace.url"
-              target="_blank">{{accommodation.stayPlace.mapsPlace.name}}</a>
+            <a :href="accommodation.stayPlace.url" @click="trackClick('hotel_name', accommodation.stayPlace.mapsPlace.name)"
+              target="_blank">{{accommodation.stayPlace.mapsPlace.name}}
+            </a>
           </h2>
         </div>
         <div class="item-hotel-star">{{getStars(accommodation.stayPlace)}}</div>
@@ -26,7 +27,7 @@
           {{accommodation.checkInDate | formatDate('DD MMM')}} - {{accommodation.checkOutDate | formatDate('DD MMM')}}
           <span class="amount">{{getCurrency(accommodation.currency)}}{{accommodation.price}}</span>
         </div>
-        <a :href="accommodation.stayPlace.url"
+        <a :href="accommodation.stayPlace.url" @click="trackClick('hotel_details', accommodation.stayPlace.mapsPlace.name)"
           target="_blank"
           class="awe-btn">More</a>
       </div>
@@ -124,6 +125,7 @@
 
 <script>
 import { constantDataMixin } from '../../../constantDataMixin.js'
+import { eventsMixin } from '../../../eventsMixin.js'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
@@ -147,7 +149,7 @@ export default {
       this.getAccommodations(this.tripId)
     }
   },
-  mixins: [constantDataMixin]
+  mixins: [constantDataMixin, eventsMixin]
 }
 </script>
 

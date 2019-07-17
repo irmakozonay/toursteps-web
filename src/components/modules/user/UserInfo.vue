@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="author-info">
-        <div class="author-name">
+        <div class="author-name" @click="trackClick('author', user.firstName + ' ' + user.lastName)">
           <a>
             <h3>{{user.firstName}} {{user.lastName}}</h3>
           </a>
@@ -26,6 +26,7 @@
         </ul>
         <a
           v-if="!shortInfo"
+          @click="trackClick('ask_question', user.firstName + ' ' + user.lastName)"
           href="mailto:info@toursteps.com?subject=Trip Information&body=- This message will be redirected to the Author"
           class="awe-btn"
         >Ask a Question To {{user.firstName}}</a>
@@ -36,6 +37,7 @@
 
 <script>
 import { constantDataMixin } from '../../../constantDataMixin.js'
+import { eventsMixin } from '../../../eventsMixin.js'
 
 export default {
   props: {
@@ -45,7 +47,7 @@ export default {
     },
     user: Object
   },
-  mixins: [constantDataMixin]
+  mixins: [constantDataMixin, eventsMixin]
 }
 </script>
 
