@@ -7,7 +7,7 @@ export const constantDataMixin = {
     ]),
     priceText () {
       const currency = this.getCurrency(this.trip.totalBudget.currency)
-      return currency + ' ' + this.trip.totalBudget.price
+      return currency + '' + this.trip.totalBudget.price
     },
     travelerTypeEmoji () {
       const value = this.getDataType('travelerTypeEmojis', this.trip.travelerType)

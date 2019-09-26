@@ -46,15 +46,13 @@ export default {
 .your-destinations {
   .your-destinations__top {
     overflow: hidden;
-    margin-bottom: 20px;
-    margin-top: 38px;
+    margin-bottom: 30px;
+    margin-top: 20px;
   }
   .title {
-    float: left;
+    text-align: center;
     h2 {
       font-weight: 400;
-      font-size: 24px;
-      color: #444;
       margin: 0;
     }
   }

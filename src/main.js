@@ -13,8 +13,12 @@ import VueAnalytics from 'vue-analytics'
 
 Vue.config.productionTip = false
 Vue.use(BootstrapVue)
-axios.defaults.baseURL = 'http://localhost:8181'
-axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('accessToken')
+axios.defaults.baseURL = 'http://207.154.246.55:8181' // 'http://localhost:8181' //
+// axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('accessToken') //bu sekilde yapinca guncellenmiyo
+axios.interceptors.request.use(function (config) {
+  config.headers.Authorization = 'Bearer ' + localStorage.getItem('accessToken')
+  return config
+})
 
 Vue.filter('formatDate', function (value, format) {
   if (value) {

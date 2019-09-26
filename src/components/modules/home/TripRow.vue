@@ -16,7 +16,32 @@
       <p>Created By:</p>
       <app-user-info :shortInfo="true" :user="trip.user"></app-user-info>
       <div class="item-footer">
-        <ul>
+              <table>
+        <tr>
+          <th>👛</th>
+          <th>{{travelerTypeEmoji}}</th>
+          <th>{{visitTypeEmoji}}</th>
+        </tr>
+        <tr>
+          <td>{{trip.travelerCount}} person{{trip.travelerCount > 1 ? 's' : ''}} {{priceText}}</td>
+          <td>{{travelerTypeText}}</td>
+          <td>{{visitTypeText}}</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th>📍</th>
+          <th>🚶‍♀</th>
+          <th>🛏️</th>
+        </tr>
+        <tr>
+          <td>{{visitCountText}}</td>
+          <td>{{paceTypeText}}</td>
+          <td>{{stayPlacesText}}</td>
+        </tr>
+      </table>
+        <!-- <ul>
           <li>
             <p>👛</p>
             <p>{{priceText}} ({{trip.travelerCount}})</p>
@@ -41,7 +66,7 @@
             <p>🛏️</p>
             <p>{{stayPlacesText}}</p>
           </li>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </div>
@@ -57,7 +82,6 @@ export default {
   },
   computed: {
     visitTypeEmossji () {
-      console.log('ssssssss')
       const value = this.getDataType('visitTypeEmojis', this.trip.visitType)
       return value == null ? '🛎️' : value
     }
@@ -70,26 +94,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #0091ea !default;
+$color: #0a5e6b !default;
 
 .destinations-item {
+  border-radius: 10px;
   background-color: #fff;
   overflow: hidden;
   margin-bottom: 30px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
   .item-media {
     width: 24%;
-    height: 100px;
     float: left;
     .image-cover {
       overflow: hidden;
     }
+  }
+  a {
+    color: #0a5e6b;
   }
   .item-body {
     padding: 18px 34px;
     width: 76%;
     float: left;
     .item-title {
+      margin-bottom: 10px;
       h2 {
         margin: 0;
         font-size: 24px;
@@ -107,20 +135,33 @@ $color: #0091ea !default;
     .item-footer {
       margin-top: 18px;
       margin-bottom: 10px;
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        li {
-          display: inline-block;
-          margin-right: 50px;
-          > p {
-            font-size: 15px;
-            color: #444;
-            margin-bottom: 0;
-            text-align: center;
-          }
-        }
+      // ul {
+      //   list-style: none;
+      //   padding: 0;
+      //   margin: 0;
+      //   li {
+      //     display: inline-block;
+      //     margin-right: 50px;
+      //     > p {
+      //       font-size: 15px;
+      //       color: #444;
+      //       margin-bottom: 0;
+      //       text-align: center;
+      //     }
+      //   }
+      // }
+      table {
+        table-layout: fixed;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th {
+        font-size: 24px;
+      }
+      td, th {
+        text-align: center;
+        padding: 4px;
       }
     }
   }

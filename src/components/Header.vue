@@ -22,7 +22,7 @@
 </template>
 
 <style lang="scss" scoped>
-$color: #0091EA !default;
+$color: #0a5e6b !default;
 
 #header-page {
   position: relative;
@@ -40,11 +40,10 @@ $color: #0091EA !default;
     background-color: #fff;
   }
   .logo {
-    position: absolute;
-    top: 20%;
-    img {
-      max-height: 60px;
-    }
+    height: 100%;
+    padding-top: 10px;
+    text-align: center;
+    filter: hue-rotate(150deg);
   }
 }
 

@@ -12,8 +12,35 @@
       <p>📆 {{trip.startDate | formatDate('DD MMM YY')}} - {{trip.endDate | formatDate('DD MMM YY')}}</p>
       <p>🗂 Booked in {{trip.bookDate | formatDate('MMMM')}}</p>
     </div>
+    <h5>Other Details</h5>
     <div class="item">
-      <h6>Other Details</h6>
+      <table>
+        <tr>
+          <th>👛</th>
+          <th>{{travelerTypeEmoji}}</th>
+          <th>{{visitTypeEmoji}}</th>
+        </tr>
+        <tr>
+          <td>{{trip.travelerCount}} person{{trip.travelerCount > 1 ? 's' : ''}} {{priceText}}</td>
+          <td>{{travelerTypeText}}</td>
+          <td>{{visitTypeText}}</td>
+        </tr>
+      </table>
+
+      <table>
+        <tr>
+          <th>📍</th>
+          <th>🚶‍♀</th>
+          <th>🛏️</th>
+        </tr>
+        <tr>
+          <td>{{visitCountText}}</td>
+          <td>{{paceTypeText}}</td>
+          <td>{{stayPlacesText}}</td>
+        </tr>
+      </table>
+
+      <!-- <h6>Other Details</h6>
       <ul>
         <li>👛 Total Budget ({{trip.travelerCount}} person{{trip.travelerCount > 1 ? 's' : ''}}) : {{priceText}}</li>
         <li>{{travelerTypeEmoji}} {{travelerTypeText}}</li>
@@ -21,7 +48,7 @@
         <li>📍 {{visitCountText}}</li>
         <li>🚶‍♀ {{paceTypeText}}</li>
         <li>🛏️ {{stayPlacesText}}</li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </template>
@@ -38,12 +65,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #0091EA !default;
+$color: #0a5e6b !default;
 
 .trip-details {
   overflow: hidden;
   margin-top: 20px;
-  margin-right: -15px;
   .tag-cloud {
     font-size: 0;
     margin-bottom: 16px;
@@ -61,8 +87,11 @@ $color: #0091EA !default;
       }
     }
   }
+  h5 {
+    text-align: center;
+    color: #0a5e6b;
+  }
   .item {
-    margin-bottom: 30px;
     h6 {
       font-weight: 700;
       font-size: 13px;
@@ -73,6 +102,19 @@ $color: #0091EA !default;
     li {
       font-size: 15px;
     }
+  }
+  table {
+    table-layout: fixed;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th {
+    font-size: 24px;
+  }
+  td, th {
+    text-align: center;
+    padding: 4px;
   }
 }
 </style>

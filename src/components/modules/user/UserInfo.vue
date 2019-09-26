@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h4 v-if="!shortInfo">Traveled by</h4>
-    <div class="about-author">
+  <div :class="{'about-author': true, 'about-author-sub-page': !shortInfo}">
+    <h4 v-if="!shortInfo">Traveled By</h4>
+    <div>
       <div class="image-thumb">
         <div class="image-cover">
           <a href="#">
@@ -52,31 +52,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #0091ea !default;
+$color: #0a5e6b !default;
 
+.about-author-sub-page {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  border-right: 1px solid #d4d4d4;
+  margin-top: 20px;
+}
 .about-author {
-  position: relative;
   border-bottom: 1px solid #d4d4d4;
+  position: relative;
   overflow: hidden;
-  padding-bottom: 35px;
   margin-bottom: 20px;
   .image-thumb {
+    margin-bottom: 20px;
     float: left;
     width: 70px;
     height: 70px;
     overflow: hidden;
+    border-radius: 50%;
     .image-cover {
       overflow: hidden;
     }
   }
-  .author-title {
-    h4 {
-      font-size: 16px;
-      color: #262626;
-      margin-top: 0;
-      text-shadow: none;
-      line-height: 1.2em;
-    }
+  h4 {
+    text-align: center;
+    color: #0a5e6b;
+    padding-bottom: 10px
   }
   .author-name {
     margin-top: 4px;

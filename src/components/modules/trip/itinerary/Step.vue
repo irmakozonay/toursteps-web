@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #0091ea !default;
+$color: #0a5e6b !default;
 
 .maps-place {
   margin-top: 15px;

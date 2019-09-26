@@ -95,7 +95,7 @@
 </template>
 
 <script>
-// import requests from './requests.js'
+import requests from './requests.js'
 
 export default {
   data () {
@@ -141,7 +141,7 @@ export default {
     },
     onSubmit () {
       console.log('send ' + this.tripImages)
-      // requests.addTrip(this.trip, this.tripImages)
+      requests.addTrip(this.trip, this.tripImages)
     }
   }
 }

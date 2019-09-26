@@ -8,9 +8,11 @@
               <h2>{{trip.title}}</h2>
             </div>
             <app-user-info v-if="trip.user" :user="trip.user"></app-user-info>
-            <h4>Trip Details</h4>
-            <p v-if="trip.description">{{trip.description}}</p>
-            <app-trip-details :trip="trip"></app-trip-details>
+            <div class="trip-details-container">
+              <h4>Trip Details</h4>
+              <p v-if="trip.description">{{trip.description}}</p>
+              <app-trip-details :trip="trip"></app-trip-details>
+            </div>
           </div>
         </div>
         <div class="col-md-6">
@@ -38,8 +40,8 @@
           <div class="col-md-12">
             <router-view></router-view>
           </div>
-          <div class="other-steps">
-            <a class="awe-btn awe-btn-style4">SEE THE OTHER TRAVEL STEPS</a>
+          <div class="col-md-12 other-steps">
+            <b-button variant="outline-warning" @click="scollToSteps()">SEE THE OTHER TRAVEL STEPS</b-button>
           </div>
         </div>
       </div>
@@ -70,7 +72,11 @@ export default {
     ]),
     ...mapActions('trip', [
       'getTrip'
-    ])
+    ]),
+    scollToSteps () {
+      var el = this.$el.getElementsByClassName('nav nav-tabs')[0]
+      el.scrollIntoView()
+    }
   },
   components: {
     appUserInfo: UserInfo,
@@ -85,41 +91,55 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #0091ea !default;
 
 .other-steps {
+  margin: 20px;
   text-align: center;
   a {
     margin: 20px;
   }
 }
-
 .nav-tabs {
   li {
     height: 62px;
     text-align: center;
     font-size: 20px;
     font-weight: 600;
+    text-decoration: underline;
+    color: gray;
     .active {
-      color: $color;
+      color: #16a2b8;
     }
   }
 }
-
 .product-detail {
-  padding-top: 52px;
+  padding-top: 20px;
   padding-bottom: 160px;
 }
-
+.trip-details-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  border-bottom: 1px solid #d4d4d4;
+  border-right: 1px solid #d4d4d4;
+  margin-bottom: 20px;
+}
 .product-detail__info {
   .product-title {
+    text-align: center;
     h2 {
       display: inline-block;
       font-size: 32px;
       font-weight: 600;
-      color: $color;
+      color: #0a5e6b;
       margin: 0;
+      padding-bottom: 10px;
     }
+  }
+  h4 {
+    text-align: center;
+    color: #0a5e6b;
+    margin-bottom: 20px;
   }
 }
 </style>

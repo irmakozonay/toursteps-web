@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #0091EA !default;
+$color: #0a5e6b !default;
 
 .good-to-know-table {
   width: 100%;
